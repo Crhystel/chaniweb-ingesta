@@ -63,7 +63,7 @@ class FrecuentoScraper(BaseScraper):
         return {
             "supermarket": "Mi Comisariato",
             "external_id": str(p.get('id')),
-            "name": p.get('slug_name', ''),       # usamos slug_name
+            "name": p.get('name', ''),       # usamos slug_name
             "price": float(precio),
             "image_url": img,
             "category": cat_name,                 # ya normalizada
