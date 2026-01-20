@@ -139,8 +139,5 @@ class FrecuentoScraper(BaseScraper):
         logging.info(f"🏁 Finalizado Frecuento ({total} productos).")
 
     def run(self):
-        """Ejecuta el scraper una sola vez cada hora."""
-        while True:
-            self.run_scraper_once()
-            logging.info("Esperando 1 hora para la próxima ejecución...")
-            time.sleep(3600)
+        """Implementación obligatoria del método abstracto run."""
+        self.run_scraper_once()
