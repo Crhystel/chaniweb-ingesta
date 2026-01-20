@@ -17,7 +17,7 @@ CATEGORIAS_OBJETIVO = {
 }
 
 
-class FrecuentoScraper(BaseScraper):
+class FrecuenteScraper(BaseScraper):
 
     def obtener_headers_auth(self):
         logging.info("Obteniendo cookies desde Frecuento...")
@@ -55,7 +55,9 @@ class FrecuentoScraper(BaseScraper):
         """Transforma el producto al formato esperado por el backend."""
         precio = p.get('amount_total') or p.get('price') or 0
         img = ""
-        if p.get('images'):
+        if p.get('photos'):
+            img = p['photos'][0]
+        elif p.get('images'):
             img = p['images'][0]
         elif p.get('media'):
             img = p['media'][0].get('url')
